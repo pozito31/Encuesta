@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Encuesta.EncuestaDetalleVista"
+             Title="Nueva encuesta">
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout>
+            <Label Text="Nombre" />
+            <Entry x:Name="NombreEntry" />
+
+            <Label Text="Fecha de nacimiento" />
+            <DatePicker x:Name="nacimientoPicker" />
+
+            <Label Text="UEFA. Equipo Favorito" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="EquipoFavoritoLabel" />
+                <Button Grid.Column="1" 
+                        Text="...."
+                        Clicked="Button_Clicked" />
+            </Grid>
+
+        </StackLayout>
+
+        <Button Text="Aceptar" Grid.Row="1" Clicked="Button_Clicked_1"/>
+
+    </Grid>
+    
+</ContentPage>

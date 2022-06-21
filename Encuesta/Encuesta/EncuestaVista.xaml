@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Encuesta.EncuestaVista"
+             Title="Encuestas">
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Button Text="+"
+                Clicked="Button_Clicked"/>
+
+        <StackLayout Grid.Row="1"
+                    x:Name="PanelEncuesta"/>
+
+    </Grid>
+    
+</ContentPage>
