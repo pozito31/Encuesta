@@ -1,10 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:core="clr-namespace:Encuesta"
              x:Class="Encuesta.EncuestaVista"
              Title="Encuestas">
 
-    <Grid Margin="10">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <core:Data x:Key="data"/>
+            <core:ColorEquipo x:Key="ColorEquipo" />
+
+            <DataTemplate x:Key="EncuestaVistaDataTemplate">
+                <ViewCell>
+                    <StackLayout>
+                        <Label Text="{Binding Nombre}" FontSize="24"/>
+                        <Label Text="{Binding FechaNacimiento, StringFormat='{}{0:dd/mm/yyyy}'}"/>
+                        <Label Text="{Binding EquipoFavorito}" 
+                               TextColor="{Binding EquipoFavorito, Converter={StaticResource ColorEquipo}}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="10" BindingContext="{Binding Source={StaticResource data}}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -14,8 +33,13 @@
         <Button Text="+"
                 Clicked="Button_Clicked"/>
 
-        <StackLayout Grid.Row="1"
-                    x:Name="PanelEncuesta"/>
+        <!--<StackLayout Grid.Row="1"
+                    x:Name="PanelEncuesta"/>-->
+        <ListView Grid.Row="1"
+                  ItemsSource="{Binding Encuestas}"
+                  SelectedItem="{Binding SeleccionarEncuesta, Mode=TwoWay}"
+                  ItemTemplate="{StaticResource EncuestaVistaDataTemplate}"
+                  HasUnevenRows="True"/>
 
     </Grid>
     

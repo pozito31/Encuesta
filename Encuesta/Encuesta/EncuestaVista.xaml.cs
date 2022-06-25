@@ -16,7 +16,7 @@ namespace Encuesta
         {
             InitializeComponent();
 
-            MessagingCenter.Subscribe<ContentPage, Encuesta>(this, Mensajes.NuevaEncuestaCompleta, (sender, args) =>
+            /*MessagingCenter.Subscribe<ContentPage, Encuesta>(this, Mensajes.NuevaEncuestaCompleta, (sender, args) =>
             {
                 PanelEncuesta.Children.Add(new Label()
                 {
@@ -24,7 +24,7 @@ namespace Encuesta
                 });
             }
 
-            );
+            );*/
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
