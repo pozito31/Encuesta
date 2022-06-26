@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
+using System.Windows.Input;
 
 namespace Encuesta
 {
@@ -43,12 +44,23 @@ namespace Encuesta
                 OnPropertyChanged();
             }
         }
+        public ICommand NuevaEncuestaCommand
+        {
+            get;
+            set;
 
+        }
         public Data()
         {
+            NuevaEncuestaCommand = new Command(NuevaEncuestaCommandExecute);
             Encuestas = new ObservableCollection<Encuesta>();
 
             MessagingCenter.Subscribe<ContentPage, Encuesta>(this, Mensajes.NuevaEncuestaCompleta, (sender, args) => { Encuestas.Add(args); });
+        }
+
+        private void NuevaEncuestaCommandExecute()
+        {
+            MessagingCenter.Send(this, Mensajes.NuevaEncuesta);
         }
     }
 }

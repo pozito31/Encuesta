@@ -16,6 +16,11 @@ namespace Encuesta
         {
             InitializeComponent();
 
+            MessagingCenter.Subscribe<Data>(this, Mensajes.NuevaEncuesta, async (sender) =>
+            {
+                await Navigation.PushAsync(new EncuestaDetalleVista());
+            });
+
             /*MessagingCenter.Subscribe<ContentPage, Encuesta>(this, Mensajes.NuevaEncuestaCompleta, (sender, args) =>
             {
                 PanelEncuesta.Children.Add(new Label()

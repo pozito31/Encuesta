@@ -22,6 +22,7 @@ namespace Encuesta
     public class Mensajes
     {
         public const string NuevaEncuestaCompleta = "Nueva Encuesta Completa";
+        public const string NuevaEncuesta = "Nueva Encuesta";
     }
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EncuestaDetalleVista : ContentPage

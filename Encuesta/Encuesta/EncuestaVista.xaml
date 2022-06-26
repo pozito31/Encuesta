@@ -31,7 +31,7 @@
         </Grid.RowDefinitions>
 
         <Button Text="+"
-                Clicked="Button_Clicked"/>
+                Command="{Binding NuevaEncuestaCommand}"/>
 
         <!--<StackLayout Grid.Row="1"
                     x:Name="PanelEncuesta"/>-->
